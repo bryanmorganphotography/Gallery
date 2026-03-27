@@ -1,1 +1,43 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Photo Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>My Photo Gallery</h1>
+
+<div class="gallery" id="gallery"></div>
+
+<script>
+const imageFolder = "images/";
+const imageFiles = [
+  "Photo1.jpg",
+  "Photo2.jpg",
+  "Photo3.jpg"
+];
+
+// AUTO CREATE GALLERY
+const gallery = document.getElementById("gallery");
+
+imageFiles.forEach(file => {
+  const div = document.createElement("div");
+  div.className = "item";
+
+  const img = document.createElement("img");
+  img.src = imageFolder + file;
+
+  const caption = document.createElement("p");
+  caption.innerText = file.replace(/\.[^/.]+$/, "");
+
+  div.appendChild(img);
+  div.appendChild(caption);
+  gallery.appendChild(div);
+});
+</script>
+
+</body>
+</html>
